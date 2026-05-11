@@ -123,6 +123,20 @@ select{
     color:#777;
 }
 
+.title-main{
+    text-align:center;
+    color:#b30000;
+    margin-bottom:5px;
+}
+
+.title-sub{
+    text-align:center;
+    color:#333;
+    font-size:20px;
+    margin-top:0;
+    margin-bottom:20px;
+}
+
 @media(max-width:600px){
 
     body{
@@ -147,7 +161,8 @@ select{
         <!-- <img src="logo.png"> -->
     </div>
 
-    <h2>Simulasi Kredit</h2>
+    <h2 class="title-main">Simulasi Kredit</h2>
+    <h2 class="title-sub">BPR Tugu Artha Sejahtera</h2>
 
     <label>Jenis Kredit</label>
 
@@ -199,7 +214,7 @@ select{
     </div>
 
     <div class="footer">
-        BPR Tugu Artha Sejahtera
+        PT. BPR Tugu Artha Sejahtera Kota Malang (Perseroda) berizin & diawasi oleh Otoritas Jasa Keuangan serta merupakan peserta penjaminan LPS
     </div>
 
 </div>
@@ -423,7 +438,7 @@ function hitungSimulasi(){
         rupiah(angsuran);
 
     document.getElementById('note').innerHTML =
-        '*Simulasi ini hanya estimasi dan dapat berubah sesuai ketentuan BPR Tugu Artha Sejahtera';
+        '*Angsuran tersebut adalah simulasi / belum termasuk pembulatan';
 
 }
 
