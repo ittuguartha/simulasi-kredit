@@ -203,7 +203,7 @@ select{
 
     <div class="hasil" id="hasil">
 
-        <p>Bunga per Tahun :</p>
+        <p>Suku Bunga :</p>
         <span id="bunga"></span>
 
         <p>Angsuran per Bulan :</p>
@@ -322,7 +322,7 @@ function hitungSimulasi(){
 
         if(pinjaman <= 50000000){
 
-            bunga = 9;
+            bunga = 1; // 1% per bulan
             maksimalTenor = 24;
 
         }
@@ -344,7 +344,7 @@ function hitungSimulasi(){
         if(pinjaman >= 1000000 && pinjaman <= 25000000){
 
             bunga = 15;
-            maksimalTenor = 48;
+            maksimalTenor = 60;
 
         }
 
@@ -420,8 +420,19 @@ function hitungSimulasi(){
     }
 
     // PERHITUNGAN
-    let totalBunga =
-        pinjaman * (bunga / 100) * (tenor / 12);
+    let totalBunga = 0;
+
+    if(jenis == 'umkm'){
+
+        // Bunga flat 1% per bulan
+        totalBunga = pinjaman * (bunga / 100) * tenor;
+
+    }else{
+
+        // Bunga flat per tahun
+        totalBunga = pinjaman * (bunga / 100) * (tenor / 12);
+
+    }
 
     let totalPinjaman =
         pinjaman + totalBunga;
@@ -432,7 +443,9 @@ function hitungSimulasi(){
     document.getElementById('hasil').style.display = 'block';
 
     document.getElementById('bunga').innerHTML =
-        bunga + '% / tahun';
+        (jenis == 'umkm')
+        ? bunga + '% / bulan'
+        : bunga + '% / tahun';
 
     document.getElementById('angsuran').innerHTML =
         rupiah(angsuran);
